@@ -11,8 +11,8 @@ Will try to update with improvements and summarize what I've learned each day.
 ## 01b
 
 - first run was quite inefficient (~10s on my laptop) due to using array to store a list of frequencies, and doing linear search on each iteration to look for duplicates
-- first rewrite used JavaScript prototype's ability to add arbitrary attributes (~100ms)
-- second rewrite used native Set type (and few other less important improvements) for additional performance gain (~25ms)
+- first rewrite used JavaScript prototype's ability to add arbitrary attributes (~85ms)
+- second rewrite used native Set type for additional performance gain (~35ms)
 
 ## 02a
 
