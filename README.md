@@ -20,5 +20,5 @@ Will try to update with improvements and summarize what I've learned each day.
 
 ## 02b
 - first run incredibly inefficient - O(n^2)?
-- TODO add limiters on first discovery & 
+- TODO add limiters on first discovery & diff >1
 - TODO will rewrite this using native Map type
