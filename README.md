@@ -17,8 +17,9 @@ Will try to update with improvements and summarize what I've learned each day.
 ## 02a
 
 - readable but likely too verbose
+- TODO rewrite calculateRepeats() using native Map type
 
 ## 02b
-- first run incredibly inefficient - O(n^2)?
-- TODO add limiters on first discovery & diff >1
-- TODO will rewrite this using native Map type
+- first run crappy/inefficient - O(n^2)? (~48ms)
+- added limiters on first discovery & diff >1 (~12ms)
+- TODO rewrite this using native Map type
