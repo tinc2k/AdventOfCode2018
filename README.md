@@ -17,9 +17,9 @@ Will try to update with improvements and summarize what I've learned each day.
 ## 02a
 
 - readable but likely too verbose
-- TODO rewrite calculateRepeats() using native Map type
+- tried rewrite calculateRepeats() using native Map type for tiny performance improvement
+- another performance improvement using object literals to avoid checking for first match
 
 ## 02b
 - first run crappy/inefficient - O(n^2)? (~48ms)
 - added limiters on first discovery & diff >1 (~12ms)
-- TODO rewrite this using native Map type
