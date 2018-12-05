@@ -4,6 +4,21 @@ const fs = require('fs');
 
 let start = (new Date).getTime();
 let polymer = fs.readFileSync('05input.txt', 'utf8');
+let lower = 'abcdefghijklmnopqrstuvwxyz';
+
+let letter = null;
+let shortest = polymer.length;
+for (let i = 0; i < shortest.length; i++) {
+  let shorter = remove(polymer, lower[i]);
+  let reacted = react(shorter);
+  if (reacted.length < length) {
+    length = reacted.length;
+    letter = shortest[i];
+  }
+}
+
+console.log({letter, length});
+console.log(`done in ${(new Date).getTime() - start}ms.`);
 
 function add(polymer, unit) {
   if (polymer.length === 0) {
@@ -13,7 +28,7 @@ function add(polymer, unit) {
   let lastUnit = polymer[polymer.length - 1];
   if (unit.toLowerCase() !== unit && unit.toLowerCase() === lastUnit ||
       unit.toUpperCase() !== unit && unit.toUpperCase() === lastUnit) {
-        polymer.pop();
+    polymer.pop();
   } else {
     polymer.push(unit);
   }
@@ -27,20 +42,13 @@ function react(polymer) {
   return newPolymer;
 }
 
-let lower = 'abcdefghijklmnopqrstuvwxyz';
-let smallestLetter = null;
-let smallest = 50000;
-for (let i = 0; i < lower.length; i++) {
-  //console.log('letter', lower[i], lower[i].toUpperCase());
-  //let smaller = polymer.replace(lower[i], '').replace(lower[i].toUpperCase(), '');
-  let smaller = polymer.split(lower[i]).join('').split(lower[i].toUpperCase()).join(''); // lol
-  let reacted = react(smaller);
-  if (reacted.length < smallest) {
-    smallest = reacted.length;
-    smallestLetter = lower[i];
-  }
+function remove(polymer, unit) {
+  return polymer.split(unit).join('').split(unit.toUpperCase()).join('');
+  // let newPolymer = [];
+  // for (let i = 0; i < polymer.length; i++) {
+  //   if (polymer[i] !== unit.toLowerCase() && polymer[i] !== unit.toUpperCase()) {
+  //     newPolymer.push(polymer[i]);
+  //   }
+  // }
+  // return newPolymer.join('');
 }
-
-console.log(smallest, smallestLetter);
-console.log(`done in ${(new Date).getTime() - start}ms.`);
-
