@@ -26,17 +26,13 @@ function generateCalendar(logs) {
     if (log.event[0] === 'G') {
       guardId = log.event.split('#')[1].split(' ')[0];
       if (!calendar[guardId]) {
-        calendar[guardId] = [];
+        calendar[guardId] = new Array(60).fill(0);
       }
     } else if (log.event[0] === 'f') {
       let asleep = moment.utc(log.time);
       let awake = moment.utc(nextLog.time);
       for (let i = asleep.minutes(); i < awake.minutes(); i++) {
-        if (calendar[guardId][i]) {
-          calendar[guardId][i] += 1;
-        } else {
-          calendar[guardId][i] = 1;
-        }
+        calendar[guardId][i] += 1;
       }
     }
   }

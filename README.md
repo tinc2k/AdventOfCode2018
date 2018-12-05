@@ -21,3 +21,25 @@ Will try to update with improvements and summarize what I've learned each day.
 ## 02b
 - first run crappy/inefficient - O(n^2)? (~48ms)
 - added limiters on first discovery & diff >1 (~12ms)
+
+## 03a
+- algo didn't calculate correctly on first two runs: i was off-by-one on shape-drawing loops
+- parsing was PITA, should figure out if there are parsing filters/masks I can use in JavaScript
+- TODO figure out better string parsing method
+
+## 03b
+- TODO bonus: print out canvas
+
+## 04a
+- first solution an absolute shit show in terms of readability
+- new trick: use `new Array(length).fill(value)` to initialize values
+- TODO figure out if we can remove `moment` and use native Dates
+
+## 04b
+
+## 05a
+- strings are immutable, duh
+- obvious from example we should avoid multiple passes through polymer
+
+## 05b
+- attempted rewriting remove() to *not* use the nasty string.split().join() thing to remove all occurences of particular character, rewrite sucked because it involved more array operations

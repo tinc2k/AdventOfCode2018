@@ -21,24 +21,20 @@ console.log(`done in ${(new Date).getTime() - start}ms.`);
 function generateCalendar(logs) {
   let calendar = {};
   let guardId;
-  for (let i = 0; i < logs.length; i++) {
+  for (let i = 0; i < logs.length - 1; i++) {
     let log = logs[i];
-    let nextLog = logs[i + 1]; // lol
+    let nextLog = logs[i + 1];
     //console.log(`${log.time.toISOString()} ${log.event}`);
     if (log.event[0] === 'G') {
       guardId = log.event.split('#')[1].split(' ')[0];
       if (!calendar[guardId]) {
-        calendar[guardId] = [];
+        calendar[guardId] = new Array(60).fill(0);
       }
     } else if (log.event[0] === 'f') {
       let asleep = moment.utc(log.time);
       let awake = moment.utc(nextLog.time);
       for (let i = asleep.minutes(); i < awake.minutes(); i++) {
-        if (calendar[guardId][i]) {
-          calendar[guardId][i] += 1;
-        } else {
-          calendar[guardId][i] = 1;
-        }
+        calendar[guardId][i] += 1;
       }
     }
   }
@@ -60,11 +56,7 @@ function findGuardMostOftenAsleep(calendar) {
 
 function sumMinutes(minutes) {
   let sum = 0;
-  for (let i = 0; i < minutes.length; i++) {
-    if (minutes[i] !== undefined && minutes[i] > 0) {
-      sum += minutes[i];
-    }
-  }
+  minutes.forEach(m => sum += m);
   return sum;
 }
 
