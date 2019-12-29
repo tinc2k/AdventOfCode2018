@@ -20,8 +20,8 @@ console.timeEnd();
 
 function add(polymer, unit) {
   if (polymer.length === 0) {
-   polymer.push(unit);
-   return;
+    polymer.push(unit);
+    return;
   }
   let lastUnit = polymer[polymer.length - 1];
   if (unit.toLowerCase() !== unit && unit.toLowerCase() === lastUnit ||
